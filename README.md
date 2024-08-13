@@ -2,6 +2,8 @@
 
 Seq2Feature is a comprehensive pipeline designed for annotating plasmid sequences and generating machine learning features using PLAnnotate. This tool automates feature extraction and annotation to support genomic research and machine learning model development.
 
+This project is primarily inspired by [pLannotate](https://github.com/mmcguffi/pLannotate/) from [Barrick Lab](https://barricklab.org/twiki/bin/view/Lab), which provides the foundation for sequence annotation used in Seq2Feature. We extend and build upon this work to offer additional features and automation.
+
 ## Features
 
 - **Automated Annotation**: Uses databases such as GenoLIB, FPbase, and Swiss PROT to annotate plasmid sequences.
@@ -85,6 +87,10 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 ## License
 
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0). See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+This project is inspired by [pLannotate](https://github.com/mmcguffi/pLannotate/). Special thanks to the authors of pLannotate for their foundational work in sequence annotation.
 
 ## Contact
 
