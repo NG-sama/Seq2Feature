@@ -17,7 +17,8 @@ def process_rows(row):
 
 
 def loop_primary():
-    gene_list = rsc.get_csv_to_gene(pd.read_csv(read_loc))
+    gene_data = pd.read_csv(read_loc)
+    gene_list = rsc.get_csv_to_gene(gene_data[:3]) #Change the code here depending on the CSV file
     # Wrap df.apply with tqdm to track progress
     tqdm.pandas()  # Register pandas with tqdm
     gene_list.progress_apply(process_rows, axis=1)

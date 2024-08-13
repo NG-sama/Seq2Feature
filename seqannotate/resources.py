@@ -156,3 +156,41 @@ def get_csv_to_gene(pd_file, seq_col="Full Gene Seq"):
     pd_file[fasta_cols] = results
 
     return pd_file
+
+"""
+Code to download and setup the database as described in pLannotate
+"""
+def download_databases():
+
+    # dynamic version number for the databases
+    # this is locked at minor version bumps
+    # need to upload a new database into github every minor update
+    # patch number bumps just refer to the X.X.0 version
+    #db_loc = f"https://github.com/mmcguffi/pLannotate/releases/download/v{plannotate_version.rsplit('.',1)[0]}.0/BLAST_dbs.tar.gz"
+    db_loc = "https://github.com/barricklab/pLannotate/releases/download/v1.1.0/BLAST_dbs.tar.gz"
+
+    # subprocess.call(["wget", "-P", f"{ROOT_DIR}/data/", db_loc])
+    subprocess.call(["curl", "-L", "-o", f"{ROOT_DIR}/data/BLAST_dbs.tar.gz", db_loc])
+
+    # check if download was successful
+    if not os.path.exists(f"{ROOT_DIR}/data/BLAST_dbs.tar.gz"):
+        print("Error downloading databases. Please try again or contact the developer.")
+        sys.exit()
+
+    print("Download complete.")
+    print()
+
+    print("Extracting...")
+    subprocess.call(
+        ["tar", "-xzf", f"{ROOT_DIR}/data/BLAST_dbs.tar.gz", "-C", f"{ROOT_DIR}/data/"] #If you already have the downloaded .tar file, change the sequence here or unzip it directly from bash.
+    )
+    print("Extraction complete.")
+    print()
+
+    print("Removing archive...")
+    subprocess.call(["rm", f"{ROOT_DIR}/data/BLAST_dbs.tar.gz"])
+    print("Removal complete.")
+    print()
+
+    print("Done.")
+    print()

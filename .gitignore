@@ -2,7 +2,6 @@
 BLAST_dbs.tar.gz
 src/
 /seqannotate/data/data/BLAST_dbs/
-/seqannotate/data/gene_data/annotated files/
 Seq2Feature_2/
 
 # Byte-compiled / optimized / DLL files
